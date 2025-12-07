@@ -1,0 +1,8 @@
+{
+  "name": "Lumen v2.0",
+  "description": "The Digital Visual Cortex. A tri-brid AI neural prosthetic for the visually impaired featuring Guardian (Reflex), Insight (Cognition), and Reader (Analysis) modes.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
