@@ -1,9 +1,9 @@
-import { Blob } from '@google/genai';
+import { Blob as GenAIBlob } from '@google/genai';
 
 /**
  * Converts Float32Array PCM data to the specific blob format required by Gemini Live API.
  */
-export function createPcmBlob(data: Float32Array): Blob {
+export function createPcmBlob(data: Float32Array): GenAIBlob {
   const l = data.length;
   const int16 = new Int16Array(l);
   for (let i = 0; i < l; i++) {

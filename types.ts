@@ -1,7 +1,6 @@
 export enum AppMode {
-  GUARDIAN = 'GUARDIAN', // System 1: Reflexes
-  INSIGHT = 'INSIGHT',   // System 2: Cognition (Live)
-  READER = 'READER'      // System 3: Analysis (Static)
+  INSIGHT = 'INSIGHT',   // Default: Conversational + Tools (Search/Play)
+  ANALYST = 'ANALYST'    // System 3: Vision to Audio Reading
 }
 
 export interface Hazard {
@@ -12,23 +11,25 @@ export interface Hazard {
   severity: 'low' | 'high';
 }
 
-export interface ChatMessage {
-  role: 'user' | 'model';
-  text: string;
-  isFinal?: boolean;
+export interface GroundingChunk {
+  web?: { uri: string; title: string };
+  maps?: { 
+      uri: string; 
+      title: string; 
+  };
 }
 
-export interface ReaderResult {
+export interface AnalysisResult {
   text: string;
-  type: 'document' | 'chart' | 'unknown';
-}
-
-export interface VolumeState {
-  isSpeaking: boolean; // User is speaking (VAD)
-  volume: number;      // Current decibel level 0-100
+  groundingChunks?: GroundingChunk[];
 }
 
 export interface VoiceCommand {
   text: string;
   timestamp: number;
+}
+
+export interface MediaState {
+  isPlaying: boolean;
+  query?: string;
 }
